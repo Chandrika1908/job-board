@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>📝 Apply</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h2>📝 Apply for a Job</h2>
+  {% if message %}
+    <p style="color: green; font-weight: bold;">{{ message }}</p>
+  {% endif %}
+  <form method="POST">
+    <input name="name" placeholder="🙋 Your Name" required>
+    <select name="job">
+      {% for job in jobs %}
+        <option value="{{ job.id }}">{{ job.title }} at {{ job.company }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">✅ Apply</button>
+  </form>
+  <a href="/">🔙 Back</a>
+</body>
+</html>

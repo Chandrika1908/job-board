@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>📄 Jobs</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h2>📄 Available Jobs</h2>
+  <form method="POST">
+    <input name="title" placeholder="🧑‍💼 Job Title" required>
+    <input name="company" placeholder="🏢 Company Name" required>
+    <button type="submit">➕ Add Job</button>
+  </form>
+  <ul>
+    {% for job in jobs %}
+      <li>💼 {{ job.title }} at {{ job.company }}</li>
+    {% endfor %}
+  </ul>
+  <a href="/">🔙 Back</a>
+</body>
+</html>
